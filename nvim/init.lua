@@ -8,7 +8,6 @@ if not vim.loop.fs_stat(lazypath) then
   local repo = "https://github.com/folke/lazy.nvim.git"
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
-
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
@@ -28,18 +27,6 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
--- require("lspconfig").gopls.setup {
---   on_attach = function(bufnr)
---     local function buf_set_keymap(...)
---       vim.api.nvim_buf_set_keymap(bufnr, ...)
---     end
---     local opts = { noremap = true, slient = true }
---
---     buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
---     buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
---   end,
--- }
---
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
