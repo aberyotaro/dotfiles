@@ -37,7 +37,13 @@ return {
     },
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
+  -- These are some examples, uncomment them if you want to see them work!neovim/nvim-lspconf
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("configs.mason").defaults()
+    end,
+  },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -48,34 +54,9 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "go",
-        "gomod",
-        "gosum",
-        "gotmpl",
-        "gowork",
-        "graphql",
-        "php",
-        "python",
-        "rust",
-        "sql",
-        "terraform",
-        "toml",
-        "typescript",
-        "vue",
-        "yaml",
-        "json",
-        "html",
-        "css",
-        "scss",
-        "javascript",
-        "typescript",
-        "tsx",
-        "dockerfile",
-      },
-    },
+    opts = function()
+      require "nvchad.configs.treesitter"
+    end,
   },
 
   {
