@@ -25,4 +25,10 @@ return {
     "tsx",
     "dockerfile",
   },
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
 }
