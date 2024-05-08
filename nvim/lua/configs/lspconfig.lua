@@ -16,6 +16,18 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.lua_ls.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = "Replace",
+      },
+    },
+  },
+}
 lspconfig.gopls.setup {
   on_attach = on_attach,
   on_init = on_init,

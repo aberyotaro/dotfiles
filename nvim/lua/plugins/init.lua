@@ -18,12 +18,18 @@ return {
     },
   },
 
-  -- These are some examples, uncomment them if you want to see them work!neovim/nvim-lspconf
   {
     "williamboman/mason.nvim",
     opts = function()
       return require "configs.mason"
     end,
+  },
+  {
+    "folke/neodev.nvim",
+    config = function()
+      require "configs.neodev"
+    end,
+    opts = {},
   },
   {
     "neovim/nvim-lspconfig",
@@ -71,5 +77,26 @@ return {
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
+  {
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "nvim-neotest/nvim-nio",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    },
+  },
+  {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+    end,
   },
 }
