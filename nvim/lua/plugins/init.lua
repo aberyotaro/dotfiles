@@ -99,4 +99,11 @@ return {
       require("dap-go").setup(opts)
     end,
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    lazy = false,
+    opts = function()
+      return require "configs.gitsigns"
+    end,
+  },
 }
