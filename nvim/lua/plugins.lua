@@ -17,7 +17,7 @@ return {
   {
     "mhartington/formatter.nvim",
     config = function()
-      require("formatter").setup(require "plugin.formatter")
+      require("formatter").setup(require "configs.formatter")
     end,
   },
 }
