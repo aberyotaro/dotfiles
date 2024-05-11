@@ -10,6 +10,9 @@ return {
   },
   {
     "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup(require "configs.mason-lspconfig")
+    end,
   },
   {
     "neovim/nvim-lspconfig",
