@@ -53,6 +53,14 @@ return {
     end,
   },
 
+  -- syntax
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("nvim-treesitter.configs").setup(require "configs.nvim-treesitter")
+    end,
+  },
+
   -- completion
   {
     "github/copilot.vim",

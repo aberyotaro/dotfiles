@@ -2,15 +2,20 @@ local map = vim.keymap.set
 
 -- common setting
 map("i", "jj", "<ESC>", { silent = true })
-map("n", "<C-s>", ":w<CR>", { silent = true })
+map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
+map("i", "<C-e>", "<End>", { desc = "move end of line" })
+map("i", "<C-h>", "<Left>", { desc = "move left" })
+map("i", "<C-l>", "<Right>", { desc = "move right" })
+map("i", "<C-j>", "<Down>", { desc = "move down" })
+map("i", "<C-k>", "<Up>", { desc = "move up" })
+map("n", "<C-s>", "<cmd>w<CR>", { silent = true })
 
 -- fotmatter
-map("n", "<C-f>", ":Format<CR>", { silent = true })
--- map("n", "<C-F>", ":FormatWrite<CR>", { silent = true })
+map("i", "<C-f>", "<ESC>:Format<CR>", { silent = true })
 
 -- nvim-tree
-map("n", "<C-t>", ":NvimTreeToggle<CR>", { silent = true })
-map("n", "<C-t>f", ":NvimTreeFindFile<CR>", { silent = true })
+map("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true })
+map("n", "<C-f>", ":NvimTreeFindFile<CR>", { silent = true })
 
 -- window/pane
 map("n", "<C-h>", "<C-w>h", { silent = true })
@@ -24,3 +29,4 @@ vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true }
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fo", ":Telescope oldfiles<CR>", { silent = true })
