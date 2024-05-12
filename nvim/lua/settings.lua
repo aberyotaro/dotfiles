@@ -15,6 +15,8 @@ function M.setup()
   vim.opt.autoindent = true -- 自動インデントを有効にする
   vim.opt.smartindent = true -- インデントをスマートに調整する
   vim.opt.wrap = false
+  vim.opt.winblend = 30 -- ウィンドウの不透明度
+  vim.opt.pumblend = 30 -- ポップアップメニューの不透明度
 
   -- theme
   vim.cmd "colorscheme habamax"

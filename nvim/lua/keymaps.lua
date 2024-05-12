@@ -14,7 +14,7 @@ map("n", "<C-s>", "<cmd>w<CR>", { silent = true })
 map("i", "<C-f>", "<ESC>:Format<CR>", { silent = true })
 
 -- nvim-tree
-map("n", "<C-h>", ":NvimTreeToggle<CR>", { silent = true })
+map("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true })
 map("n", "<C-f>", ":NvimTreeFindFile<CR>", { silent = true })
 
 -- window/pane
@@ -32,4 +32,3 @@ vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fo", ":Telescope oldfiles<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gs", ":Telescope git_status<CR>", { silent = true })
-
