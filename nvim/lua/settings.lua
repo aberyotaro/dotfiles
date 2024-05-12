@@ -28,6 +28,18 @@ function M.setup()
   vim.opt.hlsearch = true -- ハイライト検索
   vim.opt.incsearch = true -- インクリメンタルサーチ
   vim.opt.matchtime = 1
+
+  -- 言語別の設定
+  -- Go
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "go",
+    callback = function()
+      vim.opt.expandtab = false -- タブ文字をスペースに置き換える
+      vim.opt.tabstop = 4 -- タブ幅を4に設定する
+      vim.opt.softtabstop = 4 -- タブ幅を4に設定する
+      vim.opt.shiftwidth = 4 -- シフト幅を4に設定する
+    end,
+  })
 end
 
 return M

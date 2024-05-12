@@ -3,7 +3,5 @@ return {
     "lua_ls",
     "dockerls",
     "gopls",
-    "golangci_lint_ls",
-    "graphql",
   },
 }

@@ -4,14 +4,8 @@ return {
   -- lsp/dap
   {
     "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup(require "configs.mason-lspconfig")
+    opts = function()
+      require "configs.mason"
     end,
   },
   {
@@ -26,7 +20,7 @@ return {
     end,
   },
 
-  -- file
+  -- file explorer
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
@@ -68,4 +62,49 @@ return {
   {
     "github/copilot.vim",
   },
+
+  -- git
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end,
+  },
+  {
+    "tpope/vim-fugitive",
+  },
+
+  -- theme
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      require("tokyonight").setup {
+        style = "night",
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = true },
+        },
+      }
+      vim.cmd "colorscheme tokyonight"
+    end,
+  },
+  --  {
+  --    "scottmckendry/cyberdream.nvim",
+  --    lazy = false,
+  --    priority = 1000,
+  --    config = function()
+  --        require("cyberdream").setup({
+  --            -- Recommended - see "Configuring" below for more config options
+  --            transparent = true,
+  --            italic_comments = true,
+  --            hide_fillchars = true,
+  --            borderless_telescope = false,
+  --            terminal_colors = true,
+  --        })
+  --        vim.cmd("colorscheme cyberdream") -- set the colorscheme
+  --    end,
+  --  },
 }
