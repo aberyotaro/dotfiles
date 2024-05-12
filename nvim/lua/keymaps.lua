@@ -14,7 +14,7 @@ map("n", "<C-s>", "<cmd>w<CR>", { silent = true })
 map("i", "<C-f>", "<ESC>:Format<CR>", { silent = true })
 
 -- nvim-tree
-map("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true })
+map("n", "<C-h>", ":NvimTreeToggle<CR>", { silent = true })
 map("n", "<C-f>", ":NvimTreeFindFile<CR>", { silent = true })
 
 -- window/pane
