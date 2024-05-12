@@ -30,3 +30,6 @@ vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fo", ":Telescope oldfiles<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", { silent = true })
+vim.keymap.set("n", "<leader>gs", ":Telescope git_status<CR>", { silent = true })
+
