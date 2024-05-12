@@ -3,12 +3,12 @@
 # 現在のディレクトリを保存
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-# NvChadの設定ディレクトリへのシンボリックリンク
+# Neovimの設定ディレクトリへのシンボリックリンク
 if [ ! -d "~/.config/nvim" ]; then
   ln -s $DIR/../nvim ~/.config/nvim
-  echo "Linked NvChad configuration."
+  echo "Linked Neovim configuration."
 else
-  echo "NvChad configuration already linked."
+  echo "Neovim configuration already linked."
 fi
 
 # その他の設定ファイルのシンボリックリンク

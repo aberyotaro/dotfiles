@@ -91,6 +91,7 @@ return {
     config = function()
       local cmp = require "cmp"
       cmp.setup {
+        -- todo: move to configs
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
@@ -109,7 +110,7 @@ return {
         },
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "vsnip" }, -- For vsnip users.
+          -- { name = "vsnip" }, -- For vsnip users.
           -- { name = 'luasnip' }, -- For luasnip users.
           -- { name = 'ultisnips' }, -- For ultisnips users.
           -- { name = 'snippy' }, -- For snippy users.
@@ -168,6 +169,14 @@ return {
         borderless_telescope = false,
         terminal_colors = true,
       }
+    end,
+  },
+  {
+    "Shatur/neovim-ayu",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("ayu").setup {}
     end,
   },
 }
