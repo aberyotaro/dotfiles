@@ -17,7 +17,7 @@ function M.setup()
   vim.opt.wrap = false
 
   -- theme
-  vim.cmd "colorscheme tokyonight"
+  vim.cmd "colorscheme ayu-mirage"
 
   -- file
   vim.opt.fileencoding = "utf-8"
