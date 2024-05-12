@@ -38,6 +38,26 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
 
+  -- session
+  {
+    "rmagatti/auto-session",
+    config = function()
+      require("auto-session").setup {
+        auto_restore_enabled = true,
+        auto_save_enabled = true,
+        auto_session_enable_last_session = false,
+        auto_session_root_dir = vim.fn.stdpath "data" .. "/sessions/",
+        auto_session_enabled = true,
+        auto_save_interval = 18000,
+        auto_restore_last_session = true,
+        auto_session_suppress_dirs = nil,
+        auto_session_vim_shutdown = "default",
+        auto_session_allowed_paths = nil,
+        auto_session_extra_support = nil,
+      }
+    end,
+  },
+
   -- editor
   {
     "RRethy/vim-illuminate", -- highlight word under cursor
