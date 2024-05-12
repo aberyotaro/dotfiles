@@ -3,7 +3,8 @@ local util = require "lspconfig/util"
 local servers = { "html", "cssls" }
 local map = vim.keymap.set
 
-on_attach = function(client, bufnr)
+local on_attach = function(bufnr)
+  print "LSP attached"
   map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { buffer = bufnr })
   map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { buffer = bufnr })
   map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { buffer = bufnr })
@@ -27,12 +28,12 @@ end
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = on_attach,
+    on_attach = on_attach(),
   }
 end
 
 lspconfig.lua_ls.setup {
-  on_attach = on_attach,
+  on_attach = on_attach(),
   settings = {
     Lua = {
       completion = {
@@ -42,7 +43,7 @@ lspconfig.lua_ls.setup {
   },
 }
 lspconfig.gopls.setup {
-  on_attach = on_attach,
+  on_attach = on_attach(),
   cmd = { "gopls" },
   fileTypes = { "go", "gomod", "gowork", "gotmpl" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
