@@ -1,5 +1,10 @@
 return {
   ensure_installed = {
+    "lua",
+    "luadoc",
+    "printf",
+    "vim",
+    "vimdoc",
     "bash",
     "go",
     "gomod",
@@ -25,10 +30,11 @@ return {
     "tsx",
     "dockerfile",
   },
+
   highlight = {
     enable = true,
+    use_languagetree = true,
   },
-  indent = {
-    enable = true,
-  },
+
+  indent = { enable = true },
 }
