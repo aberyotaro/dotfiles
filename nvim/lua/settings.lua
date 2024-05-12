@@ -13,6 +13,9 @@ function M.setup()
   vim.opt.smartindent = true -- インデントをスマートに調整する
   vim.opt.wrap = false
 
+  -- theme
+  vim.cmd "colorscheme tokyonight"
+
   -- file
   vim.opt.fileencoding = "utf-8"
   vim.opt.swapfile = false -- スワップファイルを作成しない
