@@ -1,10 +1,13 @@
 ## ディレクトリ構成(仮)
 ```
 ~/.config/nvim/
-├── init.lua          # NeoVimのメイン設定ファイル。
+├── init.lua          # NeoVimのメイン設定ファイル。エントリポイント。
 ├── lua/              # Luaスクリプトを管理するディレクトリ。
-│   ├── plugins.lua   # プラグイン設定を管理するスクリプト。
-│   └── settings.lua  # 基本設定やユーザー設定を管理するスクリプト。
+│   ├── configs/      # 個別のプラグイン設定。
+│   ├── autocmds.lua  # 自動実行するコマンド。
+│   ├── keymaps.lua   # キーマッピング。
+│   ├── plugins.lua   # インストールするプラグイン。
+│   └── settings.lua  # 基本設定やユーザー設定。
 ├── after/            # 他の設定を上書きするためのファイルを格納するディレクトリ。
 │   ├── plugin/
 │   └── ftplugin/
