@@ -17,7 +17,7 @@ function M.setup()
   vim.opt.wrap = false
 
   -- theme
-  vim.cmd "colorscheme ayu-mirage"
+  vim.cmd "colorscheme habamax"
 
   -- file
   vim.opt.fileencoding = "utf-8"
