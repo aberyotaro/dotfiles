@@ -4,7 +4,6 @@ local servers = { "html", "cssls" }
 local map = vim.keymap.set
 
 local on_attach = function(bufnr)
-  print "LSP attached"
   map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { buffer = bufnr })
   map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { buffer = bufnr })
   map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { buffer = bufnr })
