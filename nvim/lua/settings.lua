@@ -5,7 +5,7 @@ function M.setup()
   vim.opt.termguicolors = true -- 24bitカラーを使用する
   vim.opt.cursorline = true -- カーソル行強調
   vim.wo.number = true -- 行番号表示
-  vim.wo.relativenumber = true -- カーソル位置からの行数表示
+  vim.wo.relativenumber = false -- カーソル位置からの行数表示
   vim.opt.shiftwidth = 2 -- シフト幅を2に設定する
   vim.opt.tabstop = 2 -- タブ幅を2に設定する
   vim.opt.expandtab = true -- タブ文字をスペースに置き換える
