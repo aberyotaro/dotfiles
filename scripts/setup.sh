@@ -12,7 +12,8 @@ else
 fi
 
 # その他の設定ファイルのシンボリックリンク
-#ln -sf $DIR/zsh/.zshrc ~/.zshrc
+ln -sf $DIR/../.vimrc ~/.vimrc
+ln -sf $DIR/../.ideavimrc ~/.ideavimrc
 #ln -sf $DIR/zsh/.zprofile ~/.zprofile
 #ln -sf $DIR/git/.gitconfig ~/.gitconfig
 #ln -sf $DIR/git/.gitignore_global ~/.gitignore_global
