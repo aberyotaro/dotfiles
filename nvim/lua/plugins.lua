@@ -1,7 +1,14 @@
 return {
   "nvim-lua/plenary.nvim",
-  { "folke/neodev.nvim", opts = {} },
-  -- lsp/dap
+  {
+    "folke/neodev.nvim",
+    config = function()
+      require("neodev").setup {
+        library = { plugins = { "nvim-dap-ui" }, types = true },
+      }
+    end,
+  },
+  -- lsp
   {
     "williamboman/mason.nvim",
     opts = function()
@@ -13,6 +20,69 @@ return {
     config = function()
       require "configs.nvim-lspconfig"
     end,
+  },
+  -- dap
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      local dap = require "dap"
+      dap.set_log_level "TRACE"
+    end,
+  },
+  {
+    "leoluz/nvim-dap-go",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    config = function()
+      require("dap-go").setup {
+        dap_configurations = {
+          {
+            type = "go",
+            name = "main server on remote",
+            request = "attach",
+            mode = "remote",
+            program = "/go/src/project-source/tmp/api",
+            substitutePath = {
+              {
+                from = "${workspaceFolder}/backend",
+                to = "/go/src/project-source",
+              },
+            },
+          },
+          {
+            type = "go",
+            name = "subscriber on remote",
+            request = "attach",
+            mode = "remote",
+            program = "/go/src/project-source/tmp/api",
+            substitutePath = {
+              {
+                from = "${workspaceFolder}/backend",
+                to = "/go/src/project-source",
+              },
+            },
+          },
+        },
+        delve = {
+          type = "server",
+          path = "dlv",
+          initialize_timeout_sec = 20,
+          port = "${port}",
+          args = {},
+          build_flags = "",
+          detached = true,
+          cwd = nil,
+        },
+      }
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    },
   },
 
   -- formatter
