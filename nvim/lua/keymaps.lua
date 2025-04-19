@@ -1,35 +1,19 @@
-local map = vim.keymap.set
+local M = {}
 
--- common setting
-map("i", "jj", "<ESC>", { silent = true })
-map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
-map("i", "<C-e>", "<End>", { desc = "move end of line" })
-map("i", "<C-h>", "<Left>", { desc = "move left" })
-map("i", "<C-l>", "<Right>", { desc = "move right" })
-map("i", "<C-j>", "<Down>", { desc = "move down" })
-map("i", "<C-k>", "<Up>", { desc = "move up" })
-map("n", "<C-s>", "<cmd>w<CR>", { silent = true })
+function M.on_lsp_attach(client, bufnr)
+  local opts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+  -- デバッグ用
+  vim.keymap.set("n", "<F5>", require("dap").continue, opts)
+  vim.keymap.set("n", "<F10>", require("dap").step_over, opts)
+  vim.keymap.set("n", "<leader>h", "<C-w>h", { noremap=true, silent=true })
+  vim.keymap.set("n", "<leader>l", "<C-w>l", { noremap=true, silent=true })
+end
 
--- fotmatter
-map("i", "<C-f>", "<ESC>:Format<CR>", { silent = true })
+-- 全体設定
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
--- nvim-tree
-map("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true })
-map("n", "<C-f>", ":NvimTreeFindFile<CR>", { silent = true })
-
--- window/pane
-map("n", "<C-h>", "<C-w>h", { silent = true })
-map("n", "<C-l>", "<C-w>l", { silent = true })
-map("n", "<C-j>", "<C-w>j", { silent = true })
-map("n", "<C-k>", "<C-w>k", { silent = true })
-map("n", "<C-q>", "<C-w>q", { silent = true })
-
--- telescope
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fo", ":Telescope oldfiles<CR>", { silent = true })
-vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", { silent = true })
-vim.keymap.set("n", "<leader>gs", ":Telescope git_status<CR>", { silent = true })
-vim.keymap.set("n", "<leader>tc", ":Telescope colorscheme<CR>", { silent = true })
+return M

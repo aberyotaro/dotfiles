@@ -1,9 +1,14 @@
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-
--- Autoformat on save
-augroup("__formatter__", { clear = true })
-autocmd("BufWritePost", {
-	group = "__formatter__",
-	command = ":FormatWrite",
-})
+{
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("nvim-tree").setup {
+        view = { width = 30, side = "left" },
+        filters = { dotfiles = false },
+      }
+    end,
+  },
+  
+  -- ファイルエクスプローラー切替
+  local opts = { noremap = true, silent = true }
+  vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
