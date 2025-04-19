@@ -24,3 +24,7 @@ require("lazy").setup({
 -- キーマップ／オプション／オートコマンド 読み込み
 require("keymaps")
 require("settings")
+require("themes")     -- カラースキーム設定
+
+vim.cmd([[source ~/.vimrc]])
+

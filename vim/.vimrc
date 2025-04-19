@@ -2,6 +2,7 @@ filetype plugin indent on
 syntax on
 highlight LineNr ctermfg=darkyellow
 inoremap <silent> jj <ESC>
+inoremap <silent> jk <ESC>
 inoremap <C-b> <ESC>^i
 inoremap <C-e> <End>
 inoremap <C-h> <Left>

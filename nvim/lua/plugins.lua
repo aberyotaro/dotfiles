@@ -27,7 +27,7 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     "windwp/nvim-ts-autotag",
 
-    -- IDEライクなファイルエクスプローラー
+    -- ファイルエクスプローラー
     {
       "nvim-tree/nvim-tree.lua",
       dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -43,6 +43,19 @@ return {
         -- キーマップの設定
         vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
         vim.keymap.set('n', '<leader>f', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
+      end,
+    },
+
+   -- tokyonight
+    {
+      "folke/tokyonight.nvim",
+      name = "tokyonight",
+      lazy = false,
+      priority = 1000,
+      config = function()
+        vim.g.tokyonight_style = "night"
+        vim.g.tokyonight_italic_functions = true
+        vim.cmd("colorscheme tokyonight")
       end,
     },
 }

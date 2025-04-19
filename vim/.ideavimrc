@@ -4,6 +4,7 @@ set multiple-cursors
 highlight LineNr ctermfg=darkyellow
 
 inoremap <silent> jj <ESC>
+inoremap <silent> jk <ESC>
 inoremap <C-b> <Esc>^i
 inoremap <C-e> <End>
 inoremap <C-h> <Left>

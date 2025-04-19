@@ -7,6 +7,7 @@ function M.on_lsp_attach(client, bufnr)
   -- デバッグ用
   vim.keymap.set("n", "<F5>", require("dap").continue, opts)
   vim.keymap.set("n", "<F10>", require("dap").step_over, opts)
+
   vim.keymap.set("n", "<leader>h", "<C-w>h", { noremap=true, silent=true })
   vim.keymap.set("n", "<leader>l", "<C-w>l", { noremap=true, silent=true })
 end
