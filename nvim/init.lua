@@ -25,3 +25,5 @@ require("lazy").setup({
 require("keymaps")
 require("settings")
 
+-- テーマ設定
+vim.cmd.colorscheme("retrohack")
