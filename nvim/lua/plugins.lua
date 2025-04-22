@@ -13,6 +13,22 @@ return {
 	-- LSP
 	"neovim/nvim-lspconfig",
 
+	-- Prettier
+	{
+		"dense-analysis/ale",
+		config = function()
+			-- Configuration goes here.
+			local g = vim.g
+
+			-- 保存時に自動修正を有効にする
+			g.ale_fix_on_save = 1
+			g.ale_fixers = {
+				lua = { "stylua" },
+				go = { "gofmt" },
+			}
+		end,
+	},
+
 	-- ファイルエクスプローラー
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -27,6 +43,7 @@ return {
 			})
 		end,
 	},
+	{ "nvim-tree/nvim-web-devicons", opts = {} },
 
 	-- bufferline
 	{
@@ -39,7 +56,13 @@ return {
 		end,
 	},
 
-	-- GitSigns
+	-- status line
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+
+	-- Git系
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -64,7 +87,7 @@ return {
 				signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 				numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
 				linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-				word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+				word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
 				watch_gitdir = {
 					follow_files = true,
 				},
@@ -95,7 +118,6 @@ return {
 			})
 		end,
 	},
-
 	-- GitHub Copilot
 	{
 		"github/copilot.vim",
@@ -113,20 +135,22 @@ return {
 
 	-- テーマ
 	{ "yasukotelin/retrohack" },
-
-	-- Prettier
 	{
-		"dense-analysis/ale",
-		config = function()
-			-- Configuration goes here.
-			local g = vim.g
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 
-			-- 保存時に自動修正を有効にする
-			g.ale_fix_on_save = 1
-			g.ale_fixers = {
-				lua = { "stylua" },
-				go = { "gofmt" },
-			}
+	-- nvim-surround
+	{
+		"kylechui/nvim-surround",
+		version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
 		end,
 	},
 }

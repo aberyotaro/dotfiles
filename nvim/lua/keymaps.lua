@@ -12,8 +12,13 @@ vim.keymap.set("i", "<C-k>", "<Nop>", opts)
 vim.keymap.set("i", "<C-k>", "<Up>", opts)
 
 -- Normal mode
+vim.keymap.set("n", "<leader>|", "<C-w><C-v>", opts) -- ペイン分割(垂直)
+vim.keymap.set("n", "<leader>-", "<C-w><C-s>", opts) -- ぺイン分割(水平)
 vim.keymap.set("n", "<leader>h", "<C-w>h", opts) -- ペイン移動(左)
+vim.keymap.set("n", "<leader>j", "<C-w>j", opts) -- ぺイン移動(下)
+vim.keymap.set("n", "<leader>k", "<C-w>k", opts) -- ペイン移動(上)
 vim.keymap.set("n", "<leader>l", "<C-w>l", opts) -- ぺイン移動(右)
+vim.keymap.set("n", "<C-s>", ":w<CR>", opts) -- ファイル保存
 
 -- NvimTree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- 開閉トグル
