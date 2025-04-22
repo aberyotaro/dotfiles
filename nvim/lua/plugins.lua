@@ -3,19 +3,116 @@ return {
 	"nvim-lua/plenary.nvim",
 	"nvim-telescope/telescope.nvim",
 
-	-- Treesitter
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-
-	-- Completion
-	"hrsh7th/nvim-cmp",
-	"hrsh7th/cmp-nvim-lsp",
-
 	-- LSP
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			require("lspconfig").gopls.setup({})
 		end,
+	},
+
+	-- Completion
+	"hrsh7th/nvim-cmp",
+	{
+		"hrsh7th/cmp-nvim-lsp",
+		dependencies = { "hrsh7th/nvim-cmp", "neovim/nvim-lspconfig" },
+		config = function()
+			local lspconfig = require("lspconfig")
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
+		end,
+	},
+
+	-- Treesitter
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = {
+					"go",
+					"lua",
+					"typescript",
+					"javascript",
+					"json",
+					"yaml",
+					"html",
+					"css",
+					"bash",
+					"python",
+					"markdown",
+					"vue",
+				},
+				highlight = {
+					enable = true,
+				},
+			})
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-refactor",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				refactor = {
+					highlight_definitions = {
+						enable = true,
+						clear_on_cursor_move = true,
+					},
+					highlight_current_scope = {
+						enable = true, -- 現在のスコープを強調
+					},
+					smart_rename = {
+						enable = true,
+						-- Assign keymaps to false to disable them, e.g. `smart_rename = false`.
+						keymaps = {
+							smart_rename = "grr",
+						},
+					},
+					navigation = {
+						enable = true,
+						-- Assign keymaps to false to disable them, e.g. `goto_definition = false`.
+						keymaps = {
+							goto_definition = "gnd",
+							list_definitions = "gnD",
+							list_definitions_toc = "gO",
+							goto_next_usage = "<a-*>",
+							goto_previous_usage = "<a-#>",
+						},
+					},
+				},
+			})
+		end,
+	},
+	-- 見切れた関数名などを表示する
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("treesitter-context").setup({
+				enable = true,
+				max_lines = 5,
+				trim_scope = "outer",
+				mode = "cursor",
+				separator = nil,
+			})
+		end,
+	},
+	-- インデントを表示する
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+		config = function(_, opts)
+			require("ibl").setup(opts)
+		end,
+	},
+	-- 同じ関数名をハイライトする
+	{
+		"RRethy/vim-illuminate",
 	},
 
 	-- Prettier
