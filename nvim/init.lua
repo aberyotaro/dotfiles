@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 
 -- lazy.nvim のパスを定義し、存在しなければクローン
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -20,10 +20,5 @@ local opts = {}
 require("lazy").setup({
 	{ import = "plugins" },
 }, opts)
-
 require("keymaps")
 require("settings")
-require("lualine").setup()
-
--- テーマ設定
-vim.cmd.colorscheme("tokyonight-night")

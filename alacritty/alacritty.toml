@@ -11,6 +11,7 @@ args = ["--login"]
 
 [window]
 opacity = 0.95
+decorations = "buttonless"
 
 [window.padding]
 x = 8
