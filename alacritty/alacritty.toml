@@ -6,7 +6,8 @@ family = "MesloLGS Nerd Font"
 style = "Regular"
 
 [terminal.shell]
-program = "/opt/homebrew/bin/tmux"
+program = "/bin/zsh"
+args = ["--login"]
 
 [window]
 opacity = 0.95
