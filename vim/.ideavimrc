@@ -1,6 +1,10 @@
 set surround
 set clipboard=unnamed
 set multiple-cursors
+set showmatch
+set hlsearch
+set incsearch
+set number
 highlight LineNr ctermfg=darkyellow
 
 inoremap <silent> jj <ESC>
@@ -12,6 +16,3 @@ inoremap <C-l> <Right>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 
-set showmatch
-set hlsearch
-set incsearch

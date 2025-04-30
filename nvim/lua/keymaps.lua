@@ -6,10 +6,9 @@ vim.keymap.set("i", "jk", "<Esc>:w<CR>", opts)
 vim.keymap.set("i", "<C-b>", "<Esc>^i", opts)
 vim.keymap.set("i", "<C-e>", "<End>", opts)
 vim.keymap.set("i", "<C-h>", "<Left>", opts)
-vim.keymap.set("i", "<C-l>", "<Right>", opts)
 vim.keymap.set("i", "<C-j>", "<Down>", opts)
-vim.keymap.set("i", "<C-k>", "<Nop>", opts)
 vim.keymap.set("i", "<C-k>", "<Up>", opts)
+vim.keymap.set("i", "<C-l>", "<Right>", opts)
 
 -- Normal mode
 vim.keymap.set("n", "<leader>|", "<C-w><C-v>", opts) -- ペイン分割(垂直)
