@@ -8,6 +8,7 @@ o.clipboard:append("unnamedplus")
 o.backspace = "indent,eol,start" -- バックスペースの動作を変更
 o.history = 1000 -- コマンド履歴の数
 o.hlsearch = true -- 検索結果をハイライト
+o.relativenumber = true -- 相対行番号を表示
 
 -- インデント設定
 o.autoindent = true -- 自動インデント
