@@ -2,4 +2,4 @@ require("core")
 require("lazy_config")
 
 -- colorscheme
-vim.cmd.colorscheme("darkblue")
+vim.cmd.colorscheme("sorbet")

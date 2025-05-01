@@ -27,6 +27,3 @@ o.signcolumn = "yes" -- サインカラムを常に表示
 
 o.splitright = true -- 右分割を右側に
 o.splitbelow = true -- 下分割を下側に
-
--- その他
--- o.timeoutlen = 500 -- ミリ秒単位。デフォルトは1000（=1秒）

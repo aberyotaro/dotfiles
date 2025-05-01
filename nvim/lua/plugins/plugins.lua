@@ -1,5 +1,4 @@
 return {
-
 	-- LSP
 	{
 		"neovim/nvim-lspconfig",
@@ -25,9 +24,23 @@ return {
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
+		dependencies = {
+			"windwp/nvim-ts-autotag",
+		},
 		config = function()
-			require("nvim-treesitter.configs").setup({
+			local treesitter = require("nvim-treesitter.configs")
+			treesitter.setup({
+				highlight = {
+					enable = true,
+				},
+				indent = {
+					enable = true,
+				},
+				autotag = {
+					enable = true,
+				},
 				ensure_installed = {
 					"go",
 					"lua",
@@ -42,42 +55,13 @@ return {
 					"markdown",
 					"vue",
 				},
-				highlight = {
+				incremental_selection = {
 					enable = true,
-				},
-			})
-		end,
-	},
-	{
-		"nvim-treesitter/nvim-treesitter-refactor",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				refactor = {
-					highlight_definitions = {
-						-- enable = true,
-						clear_on_cursor_move = true,
-					},
-					highlight_current_scope = {
-						enable = false, -- 現在のスコープを強調
-					},
-					smart_rename = {
-						enable = true,
-						-- Assign keymaps to false to disable them, e.g. `smart_rename = false`.
-						keymaps = {
-							smart_rename = "grr",
-						},
-					},
-					navigation = {
-						enable = true,
-						-- Assign keymaps to false to disable them, e.g. `goto_definition = false`.
-						keymaps = {
-							goto_definition = "gnd",
-							list_definitions = "gnD",
-							list_definitions_toc = "gO",
-							goto_next_usage = "<a-*>",
-							goto_previous_usage = "<a-#>",
-						},
+					keymaps = {
+						init_selection = "<C-space>",
+						node_incremental = "<C-space>",
+						scope_incremental = false,
+						node_decremental = "<bs>",
 					},
 				},
 			})
@@ -101,18 +85,11 @@ return {
 	-- インデントを表示する
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		main = "ibl",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {},
-		config = function(_, opts)
-			require("ibl").setup(opts)
-		end,
-	},
-
-	-- 同じ関数名をハイライトする
-	{
-		"RRethy/vim-illuminate",
+		opts = {
+			indent = { char = "┊" },
+		},
 	},
 
 	-- Prettier
@@ -220,12 +197,8 @@ return {
 	-- nvim-surround
 	{
 		"kylechui/nvim-surround",
-		version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
-		event = "VeryLazy",
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
-		end,
+		version = "*",
+		event = { "BufReadPre", "BufNewFile" },
+		config = true,
 	},
 }
