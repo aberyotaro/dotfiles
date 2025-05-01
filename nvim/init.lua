@@ -22,3 +22,6 @@ require("lazy").setup({
 }, opts)
 require("keymaps")
 require("settings")
+
+-- colorscheme
+vim.cmd.colorscheme("darkblue")

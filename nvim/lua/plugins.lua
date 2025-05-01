@@ -1,7 +1,24 @@
 return {
 	-- 共通ユーティリティ
 	"nvim-lua/plenary.nvim",
-	"nvim-telescope/telescope.nvim",
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("telescope").setup({
+				extensions = {
+					fzf = {
+						fuzzy = true, -- ファジーマッチングを有効にする
+						override_generic_sorter = true, -- デフォルトのソーターを上書きする
+						override_file_sorter = true, -- ファイルソーターを上書きする
+						case_mode = "smart_case", -- ケースモードの設定
+					},
+				},
+			})
+			require("telescope").load_extension("fzf")
+		end,
+	},
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
 	-- LSP
 	{
@@ -58,11 +75,11 @@ return {
 			require("nvim-treesitter.configs").setup({
 				refactor = {
 					highlight_definitions = {
-						enable = true,
+						-- enable = true,
 						clear_on_cursor_move = true,
 					},
 					highlight_current_scope = {
-						enable = true, -- 現在のスコープを強調
+						enable = false, -- 現在のスコープを強調
 					},
 					smart_rename = {
 						enable = true,
@@ -86,6 +103,7 @@ return {
 			})
 		end,
 	},
+
 	-- 見切れた関数名などを表示する
 	{
 		"nvim-treesitter/nvim-treesitter-context",
@@ -99,6 +117,7 @@ return {
 			})
 		end,
 	},
+
 	-- インデントを表示する
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -110,6 +129,7 @@ return {
 			require("ibl").setup(opts)
 		end,
 	},
+
 	-- 同じ関数名をハイライトする
 	{
 		"RRethy/vim-illuminate",
@@ -236,7 +256,7 @@ return {
 				signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 				numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
 				linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-				word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+				word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
 				watch_gitdir = {
 					follow_files = true,
 				},
@@ -267,6 +287,7 @@ return {
 			})
 		end,
 	},
+
 	-- GitHub Copilot
 	{
 		"github/copilot.vim",
@@ -282,19 +303,18 @@ return {
 		end,
 	},
 
-	-- テーマ
-	{ "yasukotelin/retrohack" },
+	-- Copilot Chat
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-		config = function()
-			require("tokyonight").setup({
-				style = "night",
-			})
-			vim.cmd.colorscheme("tokyonight-night")
-		end,
+		"CopilotC-Nvim/CopilotChat.nvim",
+		dependencies = {
+			{ "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+			{ "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+		},
+		build = "make tiktoken", -- Only on MacOS or Linux
+		opts = {
+			-- See Configuration section for options
+		},
+		-- See Commands section for default commands if you want to lazy load on them
 	},
 
 	-- nvim-surround
