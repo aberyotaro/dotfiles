@@ -1,9 +1,5 @@
 # dotfiles
 
-## 前提
-- Neovim 0.9 以降
-- Git
-
 ## インストール
 
 ```bash
