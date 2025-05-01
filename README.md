@@ -1,6 +1,6 @@
 # dotfiles
 
-## インストール
+## install
 
 ```bash
 git clone git@github.com:aberyotaro/dotfiles.git ~/.dotfiles
