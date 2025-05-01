@@ -29,10 +29,6 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabhew %<CR>", { desc = "Open current buffer in new tab" })
 
--- NvimTree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
-keymap.set("n", "<leader>t", ":NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
-
 -- Bufferline
 keymap.set("n", "<leader>b", ":BufferLinePick<CR>", { desc = "BufferLine pick" })
 for i = 1, 10 do
