@@ -6,6 +6,8 @@ o.cursorline = true -- カーソル行強調
 o.termguicolors = true -- 24bit カラー
 o.clipboard:append("unnamedplus")
 o.backspace = "indent,eol,start" -- バックスペースの動作を変更
+o.wrap = false -- 行の折り返しを無効
+
 o.history = 1000 -- コマンド履歴の数
 o.hlsearch = true -- 検索結果をハイライト
 o.relativenumber = true -- 相対行番号を表示

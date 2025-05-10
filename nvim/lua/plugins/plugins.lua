@@ -7,53 +7,6 @@ return {
 		end,
 	},
 
-	-- Treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPre", "BufNewFile" },
-		build = ":TSUpdate",
-		dependencies = {
-			"windwp/nvim-ts-autotag",
-		},
-		config = function()
-			local treesitter = require("nvim-treesitter.configs")
-			treesitter.setup({
-				highlight = {
-					enable = true,
-				},
-				indent = {
-					enable = true,
-				},
-				autotag = {
-					enable = true,
-				},
-				ensure_installed = {
-					"go",
-					"lua",
-					"typescript",
-					"javascript",
-					"json",
-					"yaml",
-					"html",
-					"css",
-					"bash",
-					"python",
-					"markdown",
-					"vue",
-				},
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "<C-space>",
-						node_incremental = "<C-space>",
-						scope_incremental = false,
-						node_decremental = "<bs>",
-					},
-				},
-			})
-		end,
-	},
-
 	-- 見切れた関数名などを表示する
 	{
 		"nvim-treesitter/nvim-treesitter-context",
@@ -66,16 +19,6 @@ return {
 				separator = nil,
 			})
 		end,
-	},
-
-	-- インデントを表示する
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		main = "ibl",
-		opts = {
-			indent = { char = "┊" },
-		},
 	},
 
 	-- Prettier
@@ -122,13 +65,5 @@ return {
 			-- See Configuration section for options
 		},
 		-- See Commands section for default commands if you want to lazy load on them
-	},
-
-	-- nvim-surround
-	{
-		"kylechui/nvim-surround",
-		version = "*",
-		event = { "BufReadPre", "BufNewFile" },
-		config = true,
 	},
 }
