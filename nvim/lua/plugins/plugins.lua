@@ -1,12 +1,4 @@
 return {
-	-- LSP
-	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("lspconfig").gopls.setup({})
-		end,
-	},
-
 	-- 見切れた関数名などを表示する
 	{
 		"nvim-treesitter/nvim-treesitter-context",
