@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 -- lazy.nvim 設定
 require("lazy").setup({
 	{ import = "plugins" },
+	{ import = "plugins.lsp" },
 }, {
 	checker = {
 		enabled = true,
