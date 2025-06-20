@@ -18,7 +18,6 @@ ln -sf "$DOTFILES_DIR/vim/.vimrc"   "$HOME/.vimrc"
 ln -sf "$DOTFILES_DIR/vim/.ideavimrc" "$HOME/.ideavimrc"
 ln -sf ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/starship/starship.toml ~/.config/starship.toml
 
 echo "Success"
