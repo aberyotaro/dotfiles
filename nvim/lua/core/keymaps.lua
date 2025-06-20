@@ -29,6 +29,11 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabhew %<CR>", { desc = "Open current buffer in new tab" })
 
+-- Explorer
+keymap.set("n", "<leader>e", function()
+	require("snacks").explorer()
+end, { desc = "Toggle Snacks Explorer" })
+
 -- Bufferline
 keymap.set("n", "<leader>b", ":BufferLinePick<CR>", { desc = "BufferLine pick" })
 for i = 1, 10 do

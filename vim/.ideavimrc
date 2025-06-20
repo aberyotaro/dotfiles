@@ -7,8 +7,8 @@ set incsearch
 set number
 highlight LineNr ctermfg=darkyellow
 
-inoremap <silent> jj <ESC>
-inoremap <silent> jk <ESC>
+inoremap jj <ESC>
+inoremap jk <ESC>
 inoremap <C-b> <Esc>^i
 inoremap <C-e> <End>
 inoremap <C-h> <Left>
