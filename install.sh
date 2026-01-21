@@ -19,5 +19,6 @@ ln -sf "$DOTFILES_DIR/vim/.ideavimrc" "$HOME/.ideavimrc"
 ln -sf ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 ln -sf ~/dotfiles/starship/starship.toml ~/.config/starship.toml
+ln -sf ~/dotfiles/wezterm/wezterm.lua ~/.wezterm.lua
 
 echo "Success"
