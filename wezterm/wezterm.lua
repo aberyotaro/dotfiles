@@ -14,11 +14,12 @@ config.initial_rows = 28
 config.font_size = 14
 
 config.color_scheme = "Kanagawa (Gogh)"
-config.window_background_opacity = 0.8
-config.text_background_opacity = 0.6
+config.window_background_opacity = 0.9
+config.text_background_opacity = 0.3
+config.macos_window_background_blur = 20
 
 config.font = wezterm.font_with_fallback({
-  "Fira Code",
+	"Fira Code",
 	"ヒラギノ角ゴシック",
 })
 

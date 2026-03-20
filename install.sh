@@ -16,9 +16,9 @@ fi
 ln -s "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 ln -sf "$DOTFILES_DIR/vim/.vimrc"   "$HOME/.vimrc"
 ln -sf "$DOTFILES_DIR/vim/.ideavimrc" "$HOME/.ideavimrc"
-ln -sf ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-ln -sf ~/dotfiles/starship/starship.toml ~/.config/starship.toml
-ln -sf ~/dotfiles/wezterm/wezterm.lua ~/.wezterm.lua
+ln -sf "$DOTFILES_DIR/tmux/.tmux.conf" ~/.tmux.conf
+ln -sf "$DOTFILES_DIR/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
+ln -sf "$DOTFILES_DIR/starship/starship.toml" ~/.config/starship.toml
+ln -sf "$DOTFILES_DIR/wezterm/wezterm.lua" ~/.wezterm.lua
 
 echo "Success"
