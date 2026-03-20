@@ -39,9 +39,9 @@ return {
 				"pyright",
 				"gopls",
 				"golangci_lint_ls",
-				"volar",
+				"vue_ls",
 			},
-			automatic_enable = true,
+			automatic_enable = false,
 		})
 
 		mason_tool_installer.setup({
