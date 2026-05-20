@@ -20,5 +20,7 @@ ln -sf "$DOTFILES_DIR/tmux/.tmux.conf" ~/.tmux.conf
 ln -sf "$DOTFILES_DIR/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
 ln -sf "$DOTFILES_DIR/starship/starship.toml" ~/.config/starship.toml
 ln -sf "$DOTFILES_DIR/wezterm/wezterm.lua" ~/.wezterm.lua
+mkdir -p ~/.config/ghostty
+ln -sf "$DOTFILES_DIR/ghostty/config" ~/.config/ghostty/config
 
 echo "Success"
