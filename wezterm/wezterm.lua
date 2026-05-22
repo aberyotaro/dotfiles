@@ -19,9 +19,10 @@ config.text_background_opacity = 0.3
 config.macos_window_background_blur = 20
 
 config.font = wezterm.font_with_fallback({
-	"Fira Code",
+	"PlemolJP Console NF",
 	"ヒラギノ角ゴシック",
 })
+config.line_height = 1.05
 
 local act = wezterm.action
 
