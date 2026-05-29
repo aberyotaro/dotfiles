@@ -6,7 +6,7 @@ adjust-cell-width = 5%
 
 theme = Kanagawa Wave
 
-background-opacity = 0.92
+background-opacity = 0.87
 background-blur-radius = 20
 
 keybind = cmd+shift+r=reload_config
