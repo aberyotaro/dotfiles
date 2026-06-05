@@ -22,5 +22,7 @@ ln -sf "$DOTFILES_DIR/starship/starship.toml" ~/.config/starship.toml
 ln -sf "$DOTFILES_DIR/wezterm/wezterm.lua" ~/.wezterm.lua
 mkdir -p ~/.config/ghostty
 ln -sf "$DOTFILES_DIR/ghostty/config" ~/.config/ghostty/config
+mkdir -p ~/.claude
+ln -sf "$DOTFILES_DIR/claude/statusline.sh" ~/.claude/statusline.sh
 
 echo "Success"
