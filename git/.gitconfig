@@ -1,0 +1,26 @@
+# 共通の git 設定（公開リポジトリに置くもの）
+# 名前・メールアドレス・署名鍵などは ~/.gitconfig.local に書く。
+
+[core]
+	editor = nvim
+	quotepath = false
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[push]
+	autoSetupRemote = true
+[rebase]
+	autoStash = true
+[merge]
+	conflictstyle = zdiff3
+[diff]
+	algorithm = histogram
+[ghq]
+	root = ~/src
+
+# マシン固有の設定（最後に読み込んで上書きできるようにする）
+[include]
+	path = ~/.gitconfig.local

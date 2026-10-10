@@ -12,16 +12,22 @@ cd ~/.dotfiles
 ./install.sh
 ```
 
-`install.sh` creates symlinks for: `~/.config/nvim`, `~/.vimrc`, `~/.ideavimrc`, `~/.tmux.conf`, `~/.config/alacritty/alacritty.toml`, `~/.config/starship.toml`, `~/.wezterm.lua`
+`install.sh` is idempotent. It:
+- runs `brew bundle` with `Brewfile` if Homebrew exists (skip with `SKIP_BREW=1`)
+- symlinks `~/.config/nvim`, `~/.vimrc`, `~/.ideavimrc`, `~/.tmux.conf`, `~/.config/starship.toml`, `~/.config/cmux/cmux.json`, `~/.wezterm.lua`, `~/.config/ghostty/config`, `~/.gitconfig`, `~/.config/git/ignore`
+- backs up existing files to `<path>.bak.<timestamp>` instead of deleting them
+- creates `~/.gitconfig.local` from `git/.gitconfig.local.example` on first run (user name/email live there, not in the repo)
 
 ## Repository Structure
 
 - `nvim/` — Neovim config (symlinked to `~/.config/nvim`)
 - `vim/` — Vim config (`.vimrc`, `.ideavimrc`)
 - `tmux/` — tmux config
-- `alacritty/` — Alacritty terminal config
-- `wezterm/` — WezTerm terminal config
+- `git/` — shared git config and global ignore (machine-specific settings go in `~/.gitconfig.local`)
+- `ghostty/`, `wezterm/`, `alacritty/` — terminal configs (alacritty is not linked by default)
+- `cmux/` — cmux config
 - `starship/` — Starship prompt config
+- `Brewfile` — Homebrew packages and Go tools
 
 ## Neovim Architecture
 

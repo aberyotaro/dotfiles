@@ -1,0 +1,10 @@
+# ~/.gitconfig.local（リポジトリ管理外。install.sh が初回だけこの雛形をコピーする）
+
+[user]
+	name = Ryotaro Abe
+	email = you@example.com
+
+# 案件用ディレクトリ配下だけ名義を切り替える例。
+# ~/.gitconfig.work に [user] email = ... を書いておく。
+# [includeIf "gitdir:~/work/"]
+# 	path = ~/.gitconfig.work
